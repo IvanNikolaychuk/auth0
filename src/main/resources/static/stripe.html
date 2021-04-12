@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layouts/default">
+<head>
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<div id="page" layout:fragment="content">
+    <div class="container">
+        <div class="mt-5">
+            <div class="container">
+                <form id="payment-form">
+                    <div id="card-element">
+                        <!-- Elements will create input elements here -->
+                    </div>
+
+                    <!-- We'll put the error messages in this element -->
+                    <div id="card-element-errors" role="alert"></div>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    let stripe = Stripe('pk_test_51I1bIHBstshG4MLCObUUCK6tud1gYpvenxqsxa10r0XHXFgCPE8GKyRQW9YkAuyWYptSCsRg4KIOcFBI4Ea86lyc00qR4gL8Ch');
+    let elements = stripe.elements();
+    let card = elements.create('card', { style: style });
+    card.mount('#card-element');
+</script>
+
+</html>
