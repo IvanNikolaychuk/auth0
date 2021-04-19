@@ -15,7 +15,7 @@ $('document').ready(function() {
         redirectUri: location.href,
         audience: envVar.audience,
         responseType: 'token id_token',
-        scope: 'openid profile user:all admin:all',
+        scope: 'openid profile client:all admin:all',
         leeway: 60
     });
 

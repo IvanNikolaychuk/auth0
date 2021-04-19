@@ -24,7 +24,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .mvcMatchers("/api/public").permitAll()
                 .antMatchers("/api/admin").hasAuthority("SCOPE_admin:all")
-                .antMatchers("/api/user").hasAuthority("SCOPE_user:all")
+                .antMatchers("/api/user").hasAuthority("SCOPE_client:all")
                 .mvcMatchers("/api/**").authenticated()
                 .anyRequest().permitAll()
                 .and().oauth2ResourceServer().jwt();
